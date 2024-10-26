@@ -1,0 +1,53 @@
+.whiteButton {
+  border: 1px solid white;
+  border-radius: 35px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  width: 180px;
+  height: 40px;
+  margin: 10px;
+  font-size: 25px;
+  font-family: "Montserrat";
+  font-weight: 600;
+  animation: fadeDown 2s ease-in;
+}
+
+.whiteButton:hover {
+  transform: scale(1.1);
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  top: 375px;
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

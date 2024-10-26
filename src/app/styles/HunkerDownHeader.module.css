@@ -1,0 +1,27 @@
+.hunkerDownHeader {
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat";
+  font-style: italic;
+  font-size: 25px;
+  position: relative;
+  top: 400px;
+  animation: fadeDown 2s ease-in;
+}
+
+.hunkerDownContainer {
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
