@@ -1,0 +1,85 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.welcomeHeader {
+  font-family: "Sedan SC";
+  font-size: 40px;
+  padding-top: 50px;
+  padding-left: 100px;
+  color: white;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.hunkerDownHeader {
+  color: white;
+  font-weight: 700;
+  font-family: "Montserrat";
+  font-style: italic;
+  font-size: 25px;
+  position: relative;
+  left: 105px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.backgroundImage {
+  background-image: url(../assets/images/23FAC_Sanford_Stadium_19.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 320px) {
+  .hunkerDownHeader {
+    position: relative;
+    left: 35px;
+    font-size: 10px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 375px) {
+  .hunkerDownHeader {
+    position: relative;
+    left: 25px;
+    font-size: 14px;
+  }
+
+  .welcomeHeader {
+    font-size: 21px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hunkerDownHeader {
+    position: relative;
+    left: 25px;
+    font-size: 13px;
+  }
+
+  .welcomeHeader {
+    font-size: 21px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 425px) {
+  .hunkerDownHeader {
+    position: relative;
+    left: 25px;
+    font-size: 15px;
+  }
+
+  .welcomeHeader {
+    font-size: 26px;
+    padding-left: 20px;
+  }
+}

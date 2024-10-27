@@ -1,8 +1,18 @@
 .logoPosition {
-  position: relative;
-  left: 900px;
-  top: 320px;
   animation: fadeDown 2s ease-in;
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  top: 320px;
 }
 
 @keyframes fadeDown {

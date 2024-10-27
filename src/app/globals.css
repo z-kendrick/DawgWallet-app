@@ -15,8 +15,6 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
 }
 
 .wrapper {
@@ -33,4 +31,8 @@ body {
   100% {
     opacity: 1;
   }
+}
+
+span {
+  color: #c01d14;
 }

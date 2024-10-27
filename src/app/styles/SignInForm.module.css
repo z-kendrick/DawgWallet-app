@@ -1,0 +1,212 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+  padding: 20px;
+  top: 200px;
+  width: 25%;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 25px;
+  animation: fadeIn 1.5s ease-in;
+}
+
+.inputBox {
+  padding: 10px;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  width: 95%;
+}
+
+.submitButton {
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 30px;
+  position: relative;
+  width: 93%;
+  left: 5px;
+  background-color: #c01d14;
+  color: white;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.signIn {
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 35px;
+  position: relative;
+  left: 10px;
+}
+
+.createAccount {
+  font-family: "Monteserrat";
+  font-weight: 400;
+  font-size: 20px;
+  position: relative;
+  left: 10px;
+}
+
+.textWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 10px;
+}
+
+.signInBox {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+}
+
+.logoContainer {
+  margin-left: auto;
+  margin-top: -90px;
+}
+
+.logoContainer img {
+  width: 80%;
+  max-width: 100px;
+}
+
+@media (min-width: 320px) {
+  .formWrapper {
+    width: 90%;
+  }
+
+  .signIn {
+    font-size: 20px;
+  }
+
+  .createAccount {
+    font-size: 15px;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width: 375px) {
+  .formWrapper {
+    width: 90%;
+  }
+
+  .signIn {
+    font-size: 20px;
+  }
+
+  .signInBox {
+    display: inline;
+  }
+
+  .logoContainer {
+    margin-top: -100px;
+  }
+
+  .logoContainer img {
+    width: 15%;
+    margin-left: auto;
+  }
+}
+
+@media (min-width: 425px) {
+  .formWrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 768px) {
+  .signIn {
+    font-size: 35px;
+  }
+
+  .createAccount {
+    font-size: 30px;
+  }
+
+  .logoContainer {
+    margin-top: -150px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .formWrapper {
+    width: 40%;
+  }
+
+  .signIn {
+    font-size: 25px;
+  }
+
+  .createAccount {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .formWrapper {
+    width: 30%;
+  }
+
+  .logoContainer {
+    margin-right: 10px;
+    margin-top: -170px;
+  }
+
+  .signIn {
+    font-size: 35px;
+  }
+
+  .createAccount {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 2560px) {
+  .formWrapper {
+    width: 20%;
+  }
+
+  .logoContainer {
+    margin-right: 20px;
+    margin-top: -180px;
+  }
+
+  .signIn {
+    font-size: 35px;
+  }
+
+  .createAccount {
+    font-size: 25px;
+    margin-bottom: 40px;
+  }
+
+  .submitButton {
+    width: 94%;
+  }
+}

@@ -7,12 +7,12 @@ import Buttons from "./components/buttons";
 import logo from "./assets/images/bulldogs-logo.png"
 
 
-
 export default function Home() {
   return (
     <div className={styles.backgroundImage}>
       <div className={styles.wrapper}>
       <WelcomeHeader />
+      <div className={logoStyle.logoContainer}>
       <Image 
       className={logoStyle.logoPosition}
       src={logo}
@@ -20,6 +20,7 @@ export default function Home() {
       height={100}
       alt="bulldog"
       />
+      </div>
       <Buttons />
       <HunkerDownHeader />
       </div>
