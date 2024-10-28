@@ -108,11 +108,16 @@
     font-size: 15px;
     padding-bottom: 50px;
   }
+
+  .logoContainer img {
+    display: hidden;
+  }
 }
 
 @media (min-width: 375px) {
   .formWrapper {
     width: 90%;
+    margin-top: 100px;
   }
 
   .signIn {
