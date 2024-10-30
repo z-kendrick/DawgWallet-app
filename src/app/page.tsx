@@ -3,7 +3,7 @@ import styles from "./styles/WelcomePage.module.css";
 import logoStyle from "./styles/logo.module.css";
 import HunkerDownHeader from "./components/HunkerDownHeader";
 import HomeButtons from "./components/homeButtons";
-import logo from "./assets/images/bulldogs-logo.png";
+import archLogo from "./assets/images/arch-logo.png";
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <div className="container">
           <div className={logoStyle.logoContainer}>
-            <Image src={logo} width={100} height={100} alt="bulldog" />'
+            <Image src={archLogo} width={64} height={64} alt="arch" />'
           </div>
           <div className={styles.buttonContainer}>
             <HomeButtons />

@@ -28,14 +28,15 @@
 
 .whiteButton {
   border: 1px solid white;
-  border-radius: 25px;
-  padding: 0.625rem 2rem;
+  border-radius: 30px;
+  padding: 0.3rem 2rem;
   color: black;
   background-color: rgb(255, 255, 255);
   font-size: 1.2rem;
   font-family: "Montserrat";
   font-weight: 600;
   animation: fadeDown 1s ease-in;
+  width: 100%;
 }
 
 .whiteButton:hover {
@@ -48,13 +49,14 @@
 @media (min-width: 768px) {
   .whiteButton {
     font-size: 1.3rem;
-    padding: 0.8rem 2.2rem;
+    padding: 0.2rem 2.2rem;
   }
 }
 
 @media (min-width: 1024px) {
   .whiteButton {
     font-size: 1.4rem;
+    padding: 0.2rem 2.4rem;
   }
 }
 
