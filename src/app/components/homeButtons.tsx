@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import styles from "../styles/buttons.module.css";
+import styles from "../styles/HomeButtons.module.css";
 import { useState } from "react";
 
-export default function Buttons() {
+export default function HomeButtons() {
   return (
     <div className={styles.buttonContainer}>
       <Link href="/pages/signIn">
@@ -13,8 +13,8 @@ export default function Buttons() {
         </button>
       </Link>
       <Link href="/pages/signUp">
-        <button className={styles.whiteButton}>
-            Sign-up
+        <button className={`${styles.fadeDown} ${styles.whiteButton}`}>
+          Sign-up
         </button>
       </Link>
     </div>

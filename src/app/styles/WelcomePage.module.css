@@ -11,24 +11,53 @@
   }
 }
 
-.fadeOut {
-  animation: fadeOut 2s ease-out backwards;
+.welcomeHeader {
+  font-family: "Sedan SC";
+  font-size: 2rem;
+  margin-top: 5rem;
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease-in;
 }
 
-@keyframes fadeOut {
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.5;
+@media (min-width: 768px) {
+  .welcomeHeader {
+    font-size: 3rem;
   }
 }
 
-.backgroundImage {
-  background-image: url(../assets/images/23FAC_Sanford_Stadium_19.jpg);
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
+@media (min-width: 1024px) {
+  .welcomeHeader {
+    position: relative;
+    right: 10rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .welcomeHeader {
+    position: relative;
+    right: 22rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .welcomeHeader {
+    position: relative;
+    right: 28rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .welcomeHeader {
+    position: relative;
+    right: 32rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .welcomeHeader {
+    position: relative;
+    right: 50rem;
+    bottom: 2rem;
+  }
 }

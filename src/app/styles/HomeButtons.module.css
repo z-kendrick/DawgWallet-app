@@ -1,0 +1,72 @@
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+.whiteButton {
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 0.625rem 2rem;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 600;
+  animation: fadeDown 1s ease-in;
+}
+
+.whiteButton:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .whiteButton {
+    font-size: 1.3rem;
+    padding: 0.8rem 2.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .whiteButton {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .whiteButton {
+    padding: 0.4rem 2.6rem;
+  }
+}
+
+@media (min-width: 2560px) {
+  .whiteButton {
+    font-size: 2.2rem;
+    padding: 0.6rem 2.8rem;
+  }
+}
