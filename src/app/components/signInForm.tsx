@@ -30,9 +30,11 @@ export default function SignInForm() {
           />
         </div>
         <div className={styles.buttonContainer}>
-          <button className={styles.submitButton} type="submit">
-            Login
-          </button>
+          <Link href="/pages/dashboard">
+            <button className={styles.submitButton} type="submit">
+              Login
+            </button>
+          </Link>
         </div>
         <p className={styles.createAccount}>
           New to DawgWallet?

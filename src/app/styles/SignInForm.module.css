@@ -73,7 +73,8 @@
   font-family: "Montserrat";
   font-weight: 600;
   animation: fadeDown 1s ease-in;
-  width: 90%;
+  width: auto;
+  min-width: 15rem;
   margin-top: 0.3rem;
   margin-bottom: 0.8rem;
 }
@@ -83,6 +84,18 @@
   color: white;
 }
 
+@media (min-width: 375px) {
+  .submitButton {
+    min-width: 18rem;
+  }
+}
+
+@media (min-width: 425px) {
+  .submitButton {
+    min-width: 18.5rem;
+  }
+}
+
 @media (min-width: 1024px) {
   .login {
     padding-left: 1.5rem;
@@ -90,6 +103,22 @@
 
   .enterDetails {
     padding-left: 1.6rem;
+  }
+
+  .submitButton {
+    min-width: 21rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .submitButton {
+    min-width: 23rem;
+  }
+}
+
+@media (min-width: 1600px) {
+  .submitButton {
+    min-width: 21.5rem;
   }
 }
 
@@ -120,6 +149,7 @@
   .submitButton {
     padding: 0.5rem 3rem;
     font-size: 1.7rem;
+    min-width: 30.5rem;
   }
 
   .formWrapper {

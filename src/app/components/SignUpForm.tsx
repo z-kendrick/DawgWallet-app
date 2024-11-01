@@ -50,9 +50,11 @@ export default function SignUpForm() {
           />
         </div>
         <div className={styles.buttonContainer}>
-          <button className={styles.submitButton} type="submit">
-            Sign up
-          </button>
+          <Link href="/pages/dashboard">
+            <button className={styles.submitButton} type="submit">
+              Sign up
+            </button>
+          </Link>
         </div>
         <p className={styles.signIn}>
           Already have an account?
