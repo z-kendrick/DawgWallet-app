@@ -1,22 +1,12 @@
-import styles from "../styles/SignInForm.module.css";
+import styles from "@/app/styles/SignInForm.module.css";
 import Link from "next/link";
-import Image from "next/image";
-import logo from "@/app/assets/images/bulldogs-logo.png";
 
 export default function SignInForm() {
   return (
     <div className={styles.formWrapper}>
       <div className={styles.signInBox}>
-        <h1 className={styles.signIn}>Sign in</h1>
-        <h2 className={styles.createAccount}>
-          New to DawgWallet?{" "}
-          <Link href="/pages/signUp">
-            <span>Sign up</span>
-          </Link>
-        </h2>
-        <div className={styles.logoContainer}>
-          <Image src={logo} width={84} height={97} alt="bulldog" />
-        </div>
+        <h1 className={styles.login}>Login</h1>
+        <h2 className={styles.enterDetails}>Please enter your details</h2>
       </div>
       <form>
         <div className={styles.inputBox}>
@@ -25,7 +15,7 @@ export default function SignInForm() {
             type="email"
             id="email"
             name="email"
-            placeholder="Email Address"
+            placeholder="Email"
             required
           />
         </div>
@@ -39,9 +29,17 @@ export default function SignInForm() {
             required
           />
         </div>
-        <button className={styles.submitButton} type="submit">
-          Log in
-        </button>
+        <div className={styles.buttonContainer}>
+          <button className={styles.submitButton} type="submit">
+            Login
+          </button>
+        </div>
+        <p className={styles.createAccount}>
+          New to DawgWallet?
+          <Link href="/pages/signUp">
+            <span> Sign up</span>
+          </Link>
+        </p>
       </form>
     </div>
   );

@@ -1,14 +1,14 @@
 import CombinedHeader from "@/app/components/CombinedHeader";
-import styles from "@/app/styles/CombinedHeader.module.css";
+import styles from "@/app/styles/SignInForm.module.css";
+import Image from "next/image";
+import bulldogLogo from "@/app/assets/images/bulldogs-logo.png";
 import SignInForm from "@/app/components/signInForm";
 
-export default function signIn() {
+export default function SignIn() {
   return (
-    <div className={styles.backgroundImage}>
-      <div className={styles.wrapper}>
-        <CombinedHeader />
-        <SignInForm />
-      </div>
+    <div>
+      <CombinedHeader />
+      <SignInForm />
     </div>
   );
 }

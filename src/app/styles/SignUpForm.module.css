@@ -12,14 +12,14 @@
   border-radius: 20px;
 }
 
-.signInBox {
+.signUpBox {
   display: flex;
   flex-direction: column;
   padding-top: 1rem;
   padding-bottom: 0.5rem;
 }
 
-.login {
+.signUp {
   font-size: 1.5rem;
   font-weight: 600;
   font-family: "Montserrat";
@@ -33,7 +33,7 @@
   padding-left: 1.4rem;
 }
 
-.createAccount {
+.signIn {
   font-family: "Montserrat";
   font-weight: 500;
   font-size: 0.9rem;
@@ -84,7 +84,7 @@
 }
 
 @media (min-width: 1024px) {
-  .login {
+  .signUp {
     padding-left: 1.5rem;
   }
 
@@ -98,7 +98,7 @@
     width: 70%;
   }
 
-  .login {
+  .signUp {
     font-size: 2.5rem;
     padding-left: 2.2rem;
   }
@@ -108,7 +108,7 @@
     padding-left: 2.2rem;
   }
 
-  .createAccount {
+  .signIn {
     font-size: 1.4rem;
   }
 
