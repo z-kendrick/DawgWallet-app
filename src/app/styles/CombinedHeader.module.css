@@ -47,6 +47,22 @@
 @media (min-width: 1600px) {
   .welcomeHeader {
     position: relative;
+    right: 30rem;
+    font-size: 2.3rem;
+    bottom: 1rem;
+  }
+
+  .hunkerDownHeader {
+    position: relative;
+    right: 30rem;
+    bottom: 1rem;
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 1900px) {
+  .welcomeHeader {
+    position: relative;
     right: 40rem;
     font-size: 2.3rem;
     bottom: 1rem;
