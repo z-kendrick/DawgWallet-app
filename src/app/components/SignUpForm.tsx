@@ -1,14 +1,30 @@
+"use client";
 import styles from "@/app/styles/SignUpForm.module.css";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function SignUpForm() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <div className={styles.formWrapper}>
       <div className={styles.signUpBox}>
         <h1 className={styles.signUp}>Sign up</h1>
         <h2 className={styles.enterDetails}>Please fill in the form below</h2>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={styles.inputBox}>
           <input
             className={styles.input}
@@ -16,7 +32,10 @@ export default function SignUpForm() {
             id="fname"
             name="fname"
             placeholder="First Name"
+            value={firstName}
+            onChange={(e) => setFirstName(e.target.value)}
             required
+            autoComplete="off"
           />
         </div>
         <div className={styles.inputBox}>
@@ -26,7 +45,10 @@ export default function SignUpForm() {
             id="lname"
             name="lname"
             placeholder="Last Name"
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
             required
+            autoComplete="off"
           />
         </div>
         <div className={styles.inputBox}>
@@ -36,7 +58,12 @@ export default function SignUpForm() {
             id="email"
             name="email"
             placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
             required
+            autoComplete="off"
           />
         </div>
         <div className={styles.inputBox}>
@@ -46,7 +73,10 @@ export default function SignUpForm() {
             id="password"
             name="password"
             placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
+            autoComplete="off"
           />
         </div>
         <div className={styles.buttonContainer}>
