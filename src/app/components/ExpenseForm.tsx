@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "../styles/ExpenseForm.module.css";  
 
 
+
 export default function AddExpense() {
     
     const [amount, setAmount] = useState("");
