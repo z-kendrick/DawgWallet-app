@@ -94,7 +94,7 @@
     width: 100%;
 }
 
-.budgetButton:hover, .expenseButton:hover {
+.budgetButton:hover, .expenseButton:hover, .logoutButton:hover {
     background-color: black;
     color: white;
     border: 1px solid black;
@@ -117,3 +117,25 @@
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+
+.logoutContainer {
+    margin-top: auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.logoutButton {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.3rem 2rem;
+    color: white;
+    background-color: rgb(212, 4, 4); 
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+}
+

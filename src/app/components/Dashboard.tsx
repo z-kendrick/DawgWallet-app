@@ -17,7 +17,7 @@ export default function DashHome() {
 
     const totalExpenses = expenses.reduce((total, expense) => total + expense.amount, 0);
     const progress = Math.min((totalExpenses / budget) * 100, 100);
-    
+
     return (
         <div className={styles.pageContainer}>
             <div className={styles.splitContainer}>
@@ -50,6 +50,13 @@ export default function DashHome() {
                             </button>
                         </Link>
                     </div>
+                    
+                    <div className={styles.logoutContainer}>
+                        <button className={styles.logoutButton}
+                        onClick={() => window.location.href = "/"}>
+                            Logout
+                        </button>
+                    </div>
                 </div>
 
                 <div className={styles.rightPane}>
@@ -70,5 +77,4 @@ export default function DashHome() {
 
         </div>
     );
-  }
-  
+}
