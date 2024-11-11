@@ -19,6 +19,11 @@ export default function AddExpense() {
         console.log("Expense Added:");
         console.log({ amount, category, date, description });
 
+        setAmount("");
+        setCategory("");
+        setDate("");
+        setDescription("");
+
 
     };
 
@@ -80,11 +85,10 @@ export default function AddExpense() {
                 />
             </div>
 
-            <Link href="/pages/dashboard">
                 <button className={styles.submitButton} type="submit">
                     Add Expense
                 </button>
-            </Link>
+            
         </form>
     );
 }
