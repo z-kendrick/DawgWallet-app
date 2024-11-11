@@ -1,0 +1,74 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    width: 35rem; 
+    height: 10rem; 
+    background-color: white;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6rem; 
+    padding: 2rem;
+}
+
+
+.enterDetails {
+    font-family: "Montserrat";
+    font-weight: 500;
+    font-size: 1rem; 
+    padding-top: 2%;
+    text-align: left;
+    margin-bottom: 1rem; 
+}
+
+
+.inputBox {
+    display: flex;
+    justify-content: left;
+
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+
+.input {
+    padding: 0.5rem;
+    padding-left: 1rem;
+    background-color: #c9c9c9;
+    border-radius: 8px;
+    position: relative;
+    width: 80%; 
+    font-size: 1rem;
+
+    margin-right: 1rem; 
+}
+
+
+.buttonContainer {
+    display: flex;
+    justify-content: flex-start; 
+    width: 100%;
+}
+
+
+.submitButton {
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 0.3rem 2rem;
+    color: white;
+    background-color: #c01d14;
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    width: auto;
+    min-width: 8rem; 
+    transition: background-color 0.3s ease-in-out;
+}
+
+
+.submitButton:hover {
+    background-color: black;
+    color: white;
+}

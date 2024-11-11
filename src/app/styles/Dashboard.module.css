@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.budgetButton {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.3rem 2rem;
+    color: black;
+    background-color: rgb(212, 4, 4);
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    animation: fadeDown 1s ease-in;
+    width: 100%;
+}
+
+.expenseButton {
+    border: 1px solid white;
+    border-radius: 30px;
+    padding: 0.3rem 2rem;
+    color: black;
+    background-color: rgb(8, 210, 89);
+    font-size: 1.2rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    animation: fadeDown 1s ease-in;
+    width: 100%;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
