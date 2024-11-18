@@ -1,5 +1,5 @@
 import connectMongoDB from "@/app/libs/mongodb";
-import Expense from "@/app/models/expenseSchema";
+import Expense from "@/app/models/ExpenseSchema";
 import {NextResponse} from "next/server";
 import {NextRequest} from "next/server";
 

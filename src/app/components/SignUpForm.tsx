@@ -12,6 +12,31 @@ export default function SignUpForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    try {
+      const response = await fetch("/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      const formData = await response.json();
+
+      if (response.ok) {
+        window.location.href = "/pages/signIn";
+      } else {
+        throw new Error(formData.message);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+
     setFirstName("");
     setLastName("");
     setEmail("");
@@ -80,11 +105,9 @@ export default function SignUpForm() {
           />
         </div>
         <div className={styles.buttonContainer}>
-          <Link href="/pages/dashboard">
-            <button className={styles.submitButton} type="submit">
-              Sign up
-            </button>
-          </Link>
+          <button className={styles.submitButton} type="submit">
+            Sign up
+          </button>
         </div>
         <p className={styles.signIn}>
           Already have an account?
