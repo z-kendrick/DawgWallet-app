@@ -7,7 +7,7 @@ import { useState } from "react";
 export default function HomeButtons() {
   return (
     <div className={styles.buttonContainer}>
-      <Link href="/pages/signIn">
+      <Link href="/signIn">
         <button className={`${styles.fadeDown} ${styles.whiteButton}`}>
           Sign-in
         </button>

@@ -2,6 +2,7 @@
 import styles from "@/app/styles/SignInForm.module.css";
 import Link from "next/link";
 import { useState } from "react";
+import { signIn } from "next-auth/react";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -10,27 +11,17 @@ export default function SignInForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("/api/signin", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
+    const result = await signIn("credentials", {
+      username: email,
+      password: password,
+      redirect: false,
+    });
 
-      const formData = await response.json();
-
-      if (response.ok) {
-        window.location.href = "/pages/dashboard";
-      } else {
-        throw new Error(formData.message);
-      }
-    } catch (error) {
-      console.error(error);
+    if (result?.error) {
+      console.log(result.error);
+    } else {
+      console.log(result);
+      window.location.href = "/dashboard";
     }
 
     setEmail("");
