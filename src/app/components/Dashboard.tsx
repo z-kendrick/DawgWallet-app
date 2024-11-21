@@ -12,8 +12,8 @@ import { Session } from "next-auth";
 export default function DashHome() {
   const { data: session, status } = useSession();
 
-  const name = session?.user?.email;
-  console.log(session, "this is session");
+  const name = session?.user?.name;
+  const userId = session?.user?.id;
 
   const [budget, setBudget] = useState(1000); // Replace with actual state management logic
   const [expenses, setExpenses] = useState([
@@ -44,6 +44,7 @@ export default function DashHome() {
     (total, expense) => total + expense.amount,
     0
   );
+
   const progress = Math.min((totalExpenses / budget) * 100, 100);
 
   return (

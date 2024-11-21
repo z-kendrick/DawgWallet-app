@@ -4,7 +4,6 @@ import User from "@/app/models/UserSchema";
 import bcrypt from "bcryptjs";
 import connectMongoDB from "./app/libs/mongodb";
 import messages from "./app/constants/messages";
-import { use } from "react";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   session: { strategy: "jwt" },
@@ -37,7 +36,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             throw new Error(messages.USER.INVALID_LOGIN);
           }
 
-          return user;
+          return {
+            name: user.firstName,
+            email: user.email,
+            budget: user.budget,
+          };
         } catch (error) {
           console.error("Error in authorize function:", error);
           return null;

@@ -2,7 +2,7 @@ import Image from "next/image";
 import styles from "./styles/Home.module.css";
 import archLogoStyles from "./styles/archLogo.module.css";
 import HunkerDownHeader from "./components/HunkerDownHeader";
-import HomeButtons from "./components/HomeButtons";
+import HomeButtons from "./components/homeButtons";
 import archLogo from "./assets/images/arch-logo.png";
 
 export default function Home() {

@@ -29,7 +29,7 @@ export default function SignUpForm() {
       const formData = await response.json();
 
       if (response.ok) {
-        window.location.href = "/pages/signIn";
+        window.location.href = "/signIn";
       } else {
         throw new Error(formData.message);
       }
