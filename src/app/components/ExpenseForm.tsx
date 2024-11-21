@@ -87,7 +87,7 @@ export default function AddExpense() {
       <button
         className={styles.submitButton}
         onClick={() => {
-          window.location.href = "/pages/dashboard";
+          window.location.href = "/dashboard";
         }}
       >
         Go to Dashboard

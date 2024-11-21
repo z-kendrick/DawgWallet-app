@@ -10,7 +10,7 @@ export default function AddBudget() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert(`Budget of $${budget} added!`);
-    window.location.href = "/pages/dashboard";
+    window.location.href = "/dashboard";
   };
 
   return (

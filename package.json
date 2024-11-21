@@ -9,10 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.7.4",
     "@next/font": "^14.2.15",
     "@types/mongoose": "^5.11.96",
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.10.0",
     "mongoose": "^8.8.1",
     "next": "15.0.1",
     "next-auth": "^5.0.0-beta.25",

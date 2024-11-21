@@ -111,7 +111,7 @@ export default function SignUpForm() {
         </div>
         <p className={styles.signIn}>
           Already have an account?
-          <Link href="/pages/signIn">
+          <Link href="/signIn">
             <span> Login</span>
           </Link>
         </p>

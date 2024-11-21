@@ -1,141 +1,141 @@
 .pageContainer {
-    display: flex;
-    flex-direction: column;
-    width: 1000px;
-    height: 700px;
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-top: 40px;
-    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 700px;
+  background-color: #f8f9fa;
+  padding: 20px;
+  margin-top: 40px;
+  box-sizing: border-box;
 }
 
 .splitContainer {
-    display: flex;
-    height: 100%;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.leftPane, .rightPane {
-    flex: 1;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
+.leftPane,
+.rightPane {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
 }
 
 .leftPane {
-    border-right: 2px solid #d3d3d3;
+  border-right: 2px solid #d3d3d3;
 }
 
 .heading2 {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
   font-weight: 600;
   font-family: "Montserrat";
 }
 
 .info {
-    font-family: "Montserrat";
-    font-weight: 500;
-    font-size: 0.9rem;
+  font-family: "Montserrat";
+  font-weight: 500;
+  font-size: 0.9rem;
 }
 
 .progressBarContainer {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .progressBar {
-    background-color: #e0e0e0;
-    border-radius: 8px;
-    height: 20px;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+  background-color: #e0e0e0;
+  border-radius: 8px;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .progressFill {
-    height: 100%;
-    background-color: #4caf50;
-    border-radius: 8px;
-    transition: width 0.3s ease;
+  height: 100%;
+  background-color: #4caf50;
+  border-radius: 8px;
+  transition: width 0.3s ease;
 }
 
 .buttonsContainer {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 .budgetButton {
-    border: 1px solid white;
-    border-radius: 30px;
-    padding: 0.3rem 2rem;
-    color: black;
-    background-color: rgb(212, 4, 4);
-    font-size: 1.2rem;
-    font-family: "Montserrat";
-    font-weight: 600;
-    animation: fadeDown 1s ease-in;
-    width: 100%;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 0.3rem 2rem;
+  color: white;
+  background-color: rgb(212, 4, 4);
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 600;
+  animation: fadeDown 1s ease-in;
+  width: 100%;
 }
 
 .expenseButton {
-    border: 1px solid white;
-    border-radius: 30px;
-    padding: 0.3rem 2rem;
-    color: black;
-    background-color: rgb(8, 210, 89);
-    font-size: 1.2rem;
-    font-family: "Montserrat";
-    font-weight: 600;
-    animation: fadeDown 1s ease-in;
-    width: 100%;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 0.3rem 2rem;
+  color: black;
+  background-color: rgb(8, 210, 89);
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 600;
+  animation: fadeDown 1s ease-in;
+  width: 100%;
 }
 
-.budgetButton:hover, .expenseButton:hover, .logoutButton:hover {
-    background-color: black;
-    color: white;
-    border: 1px solid black;
-    cursor: pointer;
+.budgetButton:hover,
+.expenseButton:hover,
+.logoutButton:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 .rightPane {
-    padding-left: 20px;
+  padding-left: 20px;
 }
 
 .transactionHistory {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .transactionCard {
-    background-color: #f1f1f1;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #f1f1f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .logoutContainer {
-    margin-top: auto;
-    display: flex;
-    justify-content: flex-start;
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-start;
 }
-
 
 .logoutButton {
-    border: 1px solid white;
-    border-radius: 30px;
-    padding: 0.3rem 2rem;
-    color: white;
-    background-color: rgb(212, 4, 4); 
-    font-size: 1.2rem;
-    font-family: "Montserrat";
-    font-weight: 600;
-    width: 100%;
-    cursor: pointer;
+  border: 1px solid white;
+  border-radius: 30px;
+  padding: 0.3rem 2rem;
+  color: white;
+  background-color: rgb(212, 4, 4);
+  font-size: 1.2rem;
+  font-family: "Montserrat";
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
 }
-
