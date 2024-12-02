@@ -87,9 +87,13 @@ export default function DashHome() {
           <h2 className={styles.heading2}>Welcome, {name}</h2>
           <div className={styles.progressBarContainer}>
             <div className={styles.progressBar}>
-              <div
+            <div
                 className={styles.progressFill}
-                style={{ width: `${progress}%` }}
+                style={{
+                  width: `${progress}%`,
+                  backgroundColor:
+                    totalExpenses > budget ? "red" : "#4caf50",
+                }}
               ></div>
             </div>
 
