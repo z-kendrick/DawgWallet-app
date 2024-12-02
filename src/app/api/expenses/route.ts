@@ -1,31 +1,52 @@
 import connectMongoDB from "@/app/libs/mongodb";
 import Expense from "@/app/models/ExpenseSchema";
-import {NextResponse} from "next/server";
-import {NextRequest} from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
-    // GET all expenses from a specific user 
     try {
-        await connectMongoDB();
-        const userId = "" // This will need to be retreived from authentication session 
-        const expenses = await Expense.find({userId: userId}); // List of user specific expenses returned by userId
-        return NextResponse.json(expenses);
+      // Retrieve the userId from query params
+      const { searchParams } = new URL(request.url);
+      const userId = searchParams.get("userId");
+  
+      if (!userId) {
+        return NextResponse.json({ error: "Not authenticated" }, { status: 401 });
+      }
+  
+      await connectMongoDB();
+      const expenses = await Expense.find({ userId }); // Filter expenses by userId
+      console.log(userId)
+      return NextResponse.json(expenses, { status: 200 });
     } catch (error) {
+      console.error("Failed to fetch expenses:", error);
       return NextResponse.json({ error: "Failed to fetch expenses" }, { status: 500 });
     }
-}
-
-export async function POST(request: NextRequest) {
-    // Handle POST requests for addExpense
+  }
+  
+  export async function POST(request: NextRequest) {
     try {
-        const {userId, amount, category, date, description} = await request.json();
-        await connectMongoDB();
-        await Expense.create({userId, amount, category, date, description});
-        return NextResponse.json({message: "Expense added succesfully"}, {status: 201}) 
+      const { amount, category, date, description, userId } = await request.json();
+  
+      if (!userId || !amount || !category || !date) {
+        return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+      }
+  
+      await connectMongoDB();
+  
+      // Create new expense for the user
+      const expense = await Expense.create({
+        amount,
+        category,
+        date,
+        description,
+        userId, // Use userId passed from client-side
+      });
+  
+      return NextResponse.json({ message: "Expense added successfully", expense }, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ error: "Failed to create expense" }, { status: 500});
+      console.error("Failed to create expense:", error);
+      return NextResponse.json({ error: "Failed to create expense" }, { status: 500 });
     }
-}
+  }
 
 export async function DELETE(request: NextRequest) {
     try {

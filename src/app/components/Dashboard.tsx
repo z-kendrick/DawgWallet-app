@@ -14,46 +14,22 @@ export default function DashHome() {
 
 
   const { data: session, status } = useSession();
+  const [budget, setBudget] = useState<number | null>(null); 
+  const [expenses, setExpenses] = useState<any[]>([]);
 
   useEffect(() => {
     console.log("Session data:", session); // Log session to check for `user.id`
   }, [session])
   
   const name = session?.user?.name;
-  const userEmail = session?.user?.email;
-
-  const [budget, setBudget] = useState<number | null>(null); 
-  const [expenses, setExpenses] = useState([
-    {
-      id: 1,
-      amount: 200,
-      category: "Groceries",
-      date: "2024-11-01",
-      description: "Weekly shopping",
-    },
-    {
-      id: 2,
-      amount: 50,
-      category: "Transport",
-      date: "2024-11-03",
-      description: "Gas",
-    },
-    {
-      id: 3,
-      amount: 120,
-      category: "Entertainment",
-      date: "2024-11-05",
-      description: "Movie night",
-    },
-  ]);
-
-  const totalExpenses = expenses.reduce(
-    (total, expense) => total + expense.amount,
-    0
-  );
+  
 
   useEffect(() => {
-    if (session && userEmail) {
+    if (session && session.user?.email) {
+
+      const userEmail = session?.user?.email;
+
+      //fetch budget
       fetch(`/api/budget?userId=${userEmail}`)
         .then((response) => response.json())
         .then((data) => {
@@ -64,8 +40,28 @@ export default function DashHome() {
           }
         })
         .catch((error) => console.error("Error fetching budget:", error));
+
+        //fetch expenses
+        fetch(`/api/expenses?userId=${userEmail}`)
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Fetched Expenses:", data);
+            if (Array.isArray(data)) {
+              setExpenses(data); // Set the fetched expenses data
+            } else {
+              console.error("Error fetching expenses:", data?.error);
+              setExpenses([]); // Set empty array if no expenses are found
+            }
+        })
+        .catch((error) => console.error("Error fetching expenses:", error));
+    
     }
   }, [session]);
+
+  const totalExpenses = expenses.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
 
   const progress = Math.min((totalExpenses / budget) * 100, 100);
 
@@ -119,22 +115,27 @@ export default function DashHome() {
         <div className={styles.rightPane}>
           <h2 className={styles.heading2}>Transaction History</h2>
           <div className={styles.transactionHistory}>
-            {expenses.map((expense) => (
-              <div key={expense.id} className={styles.transactionCard}>
-                <p className={styles.info}>
-                  <strong>Amount:</strong> ${expense.amount}
-                </p>
-                <p className={styles.info}>
-                  <strong>Category:</strong> {expense.category}
-                </p>
-                <p className={styles.info}>
-                  <strong>Date:</strong> {expense.date}
-                </p>
-                <p className={styles.info}>
-                  <strong>Description:</strong> {expense.description}
-                </p>
-              </div>
-            ))}
+            {expenses.length === 0 ? (
+              <p>No expenses recorded yet.</p>
+            ) : (
+              
+              expenses.map((expense) => (
+                <div key={expense._id} className={styles.transactionCard}>
+                  <p className={styles.info}>
+                    <strong>Amount:</strong> ${expense.amount}
+                  </p>
+                  <p className={styles.info}>
+                    <strong>Category:</strong> {expense.category}
+                  </p>
+                  <p className={styles.info}>
+                    <strong>Date:</strong> {expense.date}
+                  </p>
+                  <p className={styles.info}>
+                    <strong>Description:</strong> {expense.description}
+                  </p>
+                </div>
+              ))
+            )}
           </div>
         </div>
       </div>

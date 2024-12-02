@@ -5,7 +5,7 @@ interface IExpense extends Document {
   category: string;
   date: Date;
   description?: string;
-  userId: mongoose.Types.ObjectId; //Created by mongoDB on signup
+  userId: string; //Created by mongoDB on signup
 }
 
 const expenseSchema = new Schema<IExpense>({
@@ -24,6 +24,10 @@ const expenseSchema = new Schema<IExpense>({
   },
   description: {
     type: String,
+  },
+  userId: { // Make sure userId is included in your schema
+    type: String,  // Change this to ObjectId if you store ObjectId
+    required: true,
   },
 });
 const Expense: Model<IExpense> =

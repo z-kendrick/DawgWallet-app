@@ -3,18 +3,44 @@
 import Link from "next/link";
 import { useState } from "react";
 import styles from "../styles/ExpenseForm.module.css";
+import { useSession } from "next-auth/react";
 
 export default function AddExpense() {
+  const { data: session, status } = useSession();
   const [amount, setAmount] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+  const [userId, setUserId] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    try {
+      const response = await fetch("/api/expenses", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          amount: parseFloat(amount),
+          category,
+          date,
+          description,
+          userId: session.user.email, // Use email as userId
+        }),
+      });
 
-    console.log("Expense Added:");
-    console.log({ amount, category, date, description });
+      if (response.ok) {
+        console.log("Expense added successfully!");
+        console.log("User ID (Email):", session.user.email);
+      } else {
+        console.error("Failed to add expense.");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    //console.log("Expense Added:");
+    //console.log({ amount, category, date, description });
 
     setAmount("");
     setCategory("");
