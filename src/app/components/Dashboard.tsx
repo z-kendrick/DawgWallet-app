@@ -6,17 +6,23 @@ import { useState } from "react";
 import { useEffect } from "react";
 import AddBudget from "./BudgetForm";
 import AddExpense from "./ExpenseForm";
-import { useSession } from "next-auth/react";
 import { auth } from "@/auth";
 import { Session } from "next-auth";
+import { useSession, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function DashHome() {
 
-
+  const router = useRouter()
   const { data: session, status } = useSession();
   const [budget, setBudget] = useState<number | null>(null); 
   const [expenses, setExpenses] = useState<any[]>([]);
 
+  useEffect(() => {
+    if (status === "unauthenticated") {
+      router.push("/")
+    }
+  }, [status, router]);
   useEffect(() => {
     console.log("Session data:", session); // Log session to check for `user.id`
   }, [session])
@@ -62,6 +68,15 @@ export default function DashHome() {
     (total, expense) => total + expense.amount,
     0
   );
+  
+  const handleLogout = async () => {
+    try {
+      await signOut({redirect: false})
+      router.push("/")
+    } catch (error) {
+      console.error("Error loggin out", error);
+    }
+  };
 
   const progress = Math.min((totalExpenses / budget) * 100, 100);
 
@@ -105,7 +120,7 @@ export default function DashHome() {
           <div className={styles.logoutContainer}>
             <button
               className={styles.logoutButton}
-              onClick={() => (window.location.href = "/")}
+              onClick={handleLogout}
             >
               Logout
             </button>
