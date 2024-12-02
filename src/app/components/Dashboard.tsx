@@ -78,6 +78,26 @@ export default function DashHome() {
     }
   };
 
+  const handleDeleteExpense = async (expenseId: string) => {
+    try {
+      const response = await fetch('/api/expenses', {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id: expenseId }),
+      });
+  
+      if (!response.ok) {
+        throw new Error("Failed to delete expense");
+      }
+
+      setExpenses(expenses.filter(expense => expense._id !== expenseId));
+    } catch (error) {
+      console.error("Error deleting expense:", error);
+    }
+  };
+
   const progress = Math.min((totalExpenses / budget) * 100, 100);
 
   return (
@@ -126,7 +146,7 @@ export default function DashHome() {
             </button>
           </div>
         </div>
-
+             
         <div className={styles.rightPane}>
           <h2 className={styles.heading2}>Transaction History</h2>
           <div className={styles.transactionHistory}>
@@ -136,9 +156,18 @@ export default function DashHome() {
               
               expenses.map((expense) => (
                 <div key={expense._id} className={styles.transactionCard}>
-                  <p className={styles.info}>
-                    <strong>Amount:</strong> ${expense.amount}
-                  </p>
+                  <div className="flex justify-between items-center">
+                    <p className={styles.info}>
+                      <strong>Amount:</strong> ${expense.amount}
+                    </p>
+                    <button
+                    onClick={() => handleDeleteExpense(expense._id)}
+                      className={"bg-red-500 hover:bg-red-700 text-white w-6 h-6 rounded flex items-center justify-center text-sm"}
+                    aria-label="Delete expense"
+                    >
+                      x
+                    </button>
+                  </div>
                   <p className={styles.info}>
                     <strong>Category:</strong> {expense.category}
                   </p>

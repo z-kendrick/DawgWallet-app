@@ -1,5 +1,5 @@
 import connectMongoDB from "@/app/libs/mongodb";
-import Expense from "@/app/models/ExpenseSchema";
+import Expense from "@/app/models/expenseSchema";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -51,13 +51,27 @@ export async function GET(request: NextRequest) {
 export async function DELETE(request: NextRequest) {
     try {
         const{id} = await request.json(); // id created by mongoDB
+
+        if (!id) {
+          return NextResponse.json({error: "Missing Expense ID"}, {status: 400});
+        }
+
         await connectMongoDB();
-
         const expense = await Expense.findByIdAndDelete(id)
+        if (!expense) {
+          return NextResponse.json({error: "Expense not found"}, {status : 404})
+        }
 
-        return NextResponse.json({ message: "Expense deleted successfully" })
+        return NextResponse.json(
+          { message: "Expense deleted successfully", deletedExpense: expense},
+          {status: 200}
+        );
     } catch (error) {
-        return NextResponse.json({ message: "Failed to delete expense" })
+       console.error("Failed to delete expense:", error)
+       return NextResponse.json(
+        {error: "Failed to delete expense"},
+        {status: 500}
+      );
     }
 }
 
