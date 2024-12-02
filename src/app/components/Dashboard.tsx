@@ -3,6 +3,7 @@
 import Link from "next/link";
 import styles from "../styles/Dashboard.module.css";
 import { useState } from "react";
+import { useEffect } from "react";
 import AddBudget from "./BudgetForm";
 import AddExpense from "./ExpenseForm";
 import { useSession } from "next-auth/react";
@@ -10,12 +11,18 @@ import { auth } from "@/auth";
 import { Session } from "next-auth";
 
 export default function DashHome() {
+
+
   const { data: session, status } = useSession();
 
+  useEffect(() => {
+    console.log("Session data:", session); // Log session to check for `user.id`
+  }, [session])
+  
   const name = session?.user?.name;
-  const userId = session?.user?.id;
+  const userEmail = session?.user?.email;
 
-  const [budget, setBudget] = useState(1000); // Replace with actual state management logic
+  const [budget, setBudget] = useState<number | null>(null); 
   const [expenses, setExpenses] = useState([
     {
       id: 1,
@@ -45,6 +52,21 @@ export default function DashHome() {
     0
   );
 
+  useEffect(() => {
+    if (session && userEmail) {
+      fetch(`/api/budget?userId=${userEmail}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data?.budget) {
+            setBudget(data.budget);
+          } else {
+            setBudget(0); // If no budget is set for the user, set to 0
+          }
+        })
+        .catch((error) => console.error("Error fetching budget:", error));
+    }
+  }, [session]);
+
   const progress = Math.min((totalExpenses / budget) * 100, 100);
 
   return (
@@ -61,19 +83,27 @@ export default function DashHome() {
             </div>
 
             <div>
-              <p className={styles.info}>{`Total Budget: $${budget}`}</p>
+              <p className={styles.info}>{`Total Budget: ${budget}`}</p>
               <p
                 className={styles.info}
               >{`Total Expenses: $${totalExpenses}`}</p>
             </div>
           </div>
           <div className={styles.buttonsContainer}>
-            <Link href="/addBudget">
-              <button className={styles.budgetButton}>Edit Budget</button>
-            </Link>
-            <Link href="/addExpense">
-              <button className={styles.expenseButton}>Add Expense</button>
-            </Link>
+          {budget === null ? ( 
+              <Link href="/addBudget">
+                <button className={styles.budgetButton}>Add Budget</button>
+              </Link>
+            ) : (
+              <>
+                <Link href="/addBudget">
+                  <button className={styles.budgetButton}>Edit Budget</button>
+                </Link>
+                <Link href="/addExpense">
+                  <button className={styles.expenseButton}>Add Expense</button>
+                </Link>
+              </>
+            )}
           </div>
 
           <div className={styles.logoutContainer}>
