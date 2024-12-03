@@ -1,6 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import User from "@/app/models/UserSchema";
+import User from "@/app/models/userSchema";
 import bcrypt from "bcryptjs";
 import connectMongoDB from "./app/libs/mongodb";
 import messages from "./app/constants/messages";
@@ -24,6 +24,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           const user = await User.findOne({ email: credentials.email });
 
           if (!user) {
+            alert("Invalid User credentials")
             throw new Error(messages.USER.INVALID_LOGIN);
           }
 
@@ -50,11 +51,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   ],
   callbacks: {
     async jwt({ token, user, session }) {
-      console.log("jwt callback fired");
+      
       return token;
     },
     async session({ session, token, user }) {
-      console.log("session callback fired");
+     
       return session;
     },
   },

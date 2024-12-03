@@ -5,7 +5,7 @@ interface IExpense extends Document {
   category: string;
   date: Date;
   description?: string;
-  userId: string; //Created by mongoDB on signup
+  userId: string;
 }
 
 const expenseSchema = new Schema<IExpense>({
@@ -25,8 +25,8 @@ const expenseSchema = new Schema<IExpense>({
   description: {
     type: String,
   },
-  userId: { // Make sure userId is included in your schema
-    type: String,  // Change this to ObjectId if you store ObjectId
+  userId: { 
+    type: String,  
     required: true,
   },
 });
