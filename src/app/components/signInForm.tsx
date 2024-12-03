@@ -18,6 +18,7 @@ export default function SignInForm() {
     });
 
     if (result?.error) {
+      alert("Invalid Credentials")
       console.log(result.error);
     } else {
       console.log(result);
