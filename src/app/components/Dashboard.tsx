@@ -125,7 +125,7 @@ export default function DashHome() {
             </div>
           </div>
           <div className={styles.buttonsContainer}>
-          {budget === null ? ( 
+          {budget === 0 ? ( 
               <Link href="/addBudget">
                 <button className={styles.budgetButton}>Add Budget</button>
               </Link>
